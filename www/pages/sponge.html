@@ -1,0 +1,151 @@
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Sponge CAke</div>
+      </div>
+    </div>
+      <div class="block">
+       
+     
+ 
+   
+   <div class="page-content"><a href="#" class="col button button-fill color-black" @click="openStandalone">GO</a></div>
+       <h1><div class="title">Ingredients</div></h1>
+       <div class="title">225g (8 oz) self-raising flour.</div>
+        <div class="title">225g (8 oz) butter, at room temperature.</div>
+         <div class="title">225g (8 oz) caster sugar.</div>
+          <div class="title">4 eggs.</div>
+           <div class="title">1 teaspoon baking powder.</div>
+           
+      </div>
+      
+      </div>
+    </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        photos: [
+          {
+            url: 'img/s1.jpg',
+            caption: 'eat the oven and prepare your pans. Set the oven to 180°C, 350°F, or gas mark 4. Butter two 9-inch cake pans or 2 12-by-17 inch rimmed baking sheets. Line the bottom of your pans with parchment paper, butter the paper, and then sprinkle flour all over it. Gently shake the flour around and shake the excess out of the pan.'
+          },
+        
+          {
+            url: 'img/s2.jpg',
+            caption: 'Set up a bain marie. Pour water into a saucepan and get it simmering.'
+          },
+            {
+            url: 'img/s3.jpg',
+            caption: 'Add egg yolks and 1 cup of sugar to the bowl. Whisk till the yolks and sugar over the simmering water until the sugar dissolves, about 3 or 4 minutes. When you no longer see sugar granules, remove the bowl from heat.'
+          },
+            {
+            url: 'img/s4.jpg',
+            caption: 'Beat the yolk/sugar mixture. Use a hand-mixer on medium-high to beat the mixture until it lightens in color and thickens slightly, about 3 to 5 minutes. Stir in vanilla extract and salt. Pour the mixture into a large bowl.'
+          },
+            {
+            url: 'img/s5.jpg',
+            caption: 'Beat egg whites. Place the whites in a separate large bowl and beat with a mixer on high speed. Beat till soft peaks form. These should be slightly droopy if you lift the beaters out of the bowl..'
+          },
+           {
+            url: 'img/s6.jpg',
+            caption: 'Fold the whites into the yolks. Do this gradually, by folding in one third of the whites at a time. Then, gently sift the flour over the top and fold it in as well. Stop folding just before all the flour is incorporated..'
+          },
+           {
+            url: 'img/s7.jpg',
+            caption: 'Pour in the melted butter. Pour it down the side of the bowl.'
+          },
+           {
+            url: 'img/s8.jpg',
+            caption: 'Spread the batter in pans and bake. Divide the batter between your two cake pans or sheets. Bake the cake pans for around 25 minutes or 15 minutes for the sheet pans. '
+          },
+           {
+            url: 'img/s9.jpg',
+            caption: 'Remove from the sheets or pans. If you used cake pans, hold a plate over the cake, then swiftly turn it upside down so the cake comes out onto the plate. Remove the parchment and then use the same method to flip it onto your serving plate.'
+          },
+            {
+            url: 'img/s10.jpg',
+            caption: 'Frost or fill, as desired. Sponge cakes baked in cake pans easily lend themselves to filling between the layers. Sponge cakes baked in sheet pans can be filled and rolled before being frosted on the outside.'
+          }
+        ],
+      }
+    },
+    methods: {
+      openStandalone: function () {
+        const self = this;
+        self.standalone.open();
+      },
+      openPopup: function () {
+        const self = this;
+        self.popup.open();
+      },
+      openPage: function () {
+        const self = this;
+        self.page.open();
+      },
+      openStandaloneDark: function () {
+        const self = this;
+        self.standaloneDark.open();
+      },
+      openPopupDark: function () {
+        const self = this;
+        self.popupDark.open();
+      },
+      openPageDark: function () {
+        const self = this;
+        self.pageDark.open();
+      },
+    },
+    on: {
+      pageInit: function () {
+        const self = this;
+        // Create PBs when page init
+        self.standalone = self.$app.photoBrowser.create({
+          photos: self.photos,
+        });
+        self.popup = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'popup',
+        });
+        self.page = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'page',
+          backLinkText: 'Back',
+        });
+        self.standaloneDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          theme: 'dark',
+        });
+        self.popupDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'popup',
+          theme: 'dark',
+        });
+        self.pageDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'page',
+          backLinkText: 'Back',
+          theme: 'dark',
+        });
+      },
+      pageBeforeRemove: function () {
+        const self = this;
+        // Destroy PBs on page remove
+        self.standalone.destroy();
+        self.popup.destroy();
+        self.page.destroy();
+        self.standaloneDark.destroy();
+        self.popupDark.destroy();
+        self.pageDark.destroy();
+      },
+    }
+  };
+</script>

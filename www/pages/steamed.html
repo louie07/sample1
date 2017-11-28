@@ -1,0 +1,142 @@
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Carrot CAke</div>
+      </div>
+    </div>
+      <div class="block">
+       
+     
+ 
+   
+   <div class="page-content"><a href="#" class="col button button-fill color-black" @click="openStandalone">GO</a></div>
+       <h1><div class="title">Ingredients</div></h1>
+       <div class="title">3/4 cup or 225 grams castor sugar</div>
+        <div class="title">1 cup or 125 grams (4.4 oz) plain flour</div>
+         <div class="title">1 can (170 gram) Nestle cream</div>
+          <div class="title">2 large eggs</div>
+           <div class="title">1/2 cup cocoa powder</div>
+            <div class="title">1/2 teaspoon baking powder</div>
+             <div class="title">1/2 teaspoon baking soda</div>
+              <div class="title">1/2 teaspoon vanilla extract</div>
+              
+      </div>
+      
+      </div>
+    </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        photos: [
+          {
+            url: 'img/sc1.jpg',
+            caption: 'Sift the flour, cocoa powder, baking powder and baking soda together.'
+          },
+        
+          {
+            url: 'img/sc2.jpg',
+            caption: 'Put butter, sugar, Nestle cream and vanilla essence into a small pot and stir over low heat until butter is melted and sugar dissolved. Let the mixture cool for a while.'
+          },
+            {
+            url: 'img/sc3.jpg',
+            caption: 'Use a small whisk and beat the eggs for about 5 minutes until they thicken and increase in volume. pour beaten eggs into the slightly cooled mixture in (2) and mix well.'
+          },
+            {
+            url: 'img/sc4.jpg',
+            caption: 'Slowly add the dry ingredients in (1) into the combined mixture in (3). Stir and mix well.'
+          },
+            {
+            url: 'img/sc5.jpg',
+            caption: 'Pour the cake mixture into a baking tin lined with grease- proof paper. cover the top loosely with a piece of aluminum foil.'
+          },
+           {
+            url: 'img/sc6.jpg',
+            caption: 'Prepare to steam the cake. You can use a wok or an electric steamer. Heat up the water and steam the cake mixture for 35 minutes, or until a toothpick inserted into the center comes out clean. Enjoy your delicious steamed chocolate cake!'
+          },
+           {
+            url: 'img/sc7.jpg',
+            caption: 'Finished.'
+          }
+        ],
+      }
+    },
+    methods: {
+      openStandalone: function () {
+        const self = this;
+        self.standalone.open();
+      },
+      openPopup: function () {
+        const self = this;
+        self.popup.open();
+      },
+      openPage: function () {
+        const self = this;
+        self.page.open();
+      },
+      openStandaloneDark: function () {
+        const self = this;
+        self.standaloneDark.open();
+      },
+      openPopupDark: function () {
+        const self = this;
+        self.popupDark.open();
+      },
+      openPageDark: function () {
+        const self = this;
+        self.pageDark.open();
+      },
+    },
+    on: {
+      pageInit: function () {
+        const self = this;
+        // Create PBs when page init
+        self.standalone = self.$app.photoBrowser.create({
+          photos: self.photos,
+        });
+        self.popup = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'popup',
+        });
+        self.page = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'page',
+          backLinkText: 'Back',
+        });
+        self.standaloneDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          theme: 'dark',
+        });
+        self.popupDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'popup',
+          theme: 'dark',
+        });
+        self.pageDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'page',
+          backLinkText: 'Back',
+          theme: 'dark',
+        });
+      },
+      pageBeforeRemove: function () {
+        const self = this;
+        // Destroy PBs on page remove
+        self.standalone.destroy();
+        self.popup.destroy();
+        self.page.destroy();
+        self.standaloneDark.destroy();
+        self.popupDark.destroy();
+        self.pageDark.destroy();
+      },
+    }
+  };
+</script>

@@ -1,0 +1,167 @@
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Black and White Cupcakes</div>
+      </div>
+    </div>
+      <div class="block">
+       
+       
+
+
+  <div class="page-content"><a href="#" class="col button button-fill color-black" @click="openStandalone">GO</a></div>
+
+          <h1><div class="title">Ingredients</div></h1>
+       <div class="title">1 1/3 cups chocolate milk</div>
+        <div class="title">1/2 cup canola oil</div>
+         <div class="title">3 large eggs</div>
+          <div class="title">1 19.5-oz. package dark chocolate cake mix</div>
+           <div class="title">3 tbsp. unsalted butter</div>
+            <div class="title">1.5 7-oz. jars marshmallow cream</div>
+             <div class="title">1 10-oz. bag dark chocolate chips</div>
+              <div class="title">2/3 cup heavy cream</div>
+               <div class="title">1 tbsp. light corn syrup</div>
+                <div class="title">Half 12-oz. can whipped vanilla frosting</div>
+                 
+       </div>
+      
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        photos: [
+          {
+            url: 'img/bw1.jpg',
+            caption: 'Preheat your oven to 350ºF (176ºC).'
+          },
+          
+          {
+            url: 'img/bw2.jpg',
+            caption: 'Line 24 2 1/2-inch muffin cups with paper baking cups. Set them aside.'
+          },
+            {
+            url: 'img/bw3.jpg',
+            caption: 'Combine the chocolate milk, oil, eggs, and cake mix in a large bowl. Combine 1 1/3 cups of chocolate milk, 1/2 cup of canola oil, 3 large eggs, and 1 19.5-oz. package of dark chocolate cake mix together in a bowl.'
+          },
+            {
+            url: 'img/bw4.jpg',
+            caption: 'Mix the ingredients. Mix them together with an electric mixer on low speed for 30 seconds. Use a rubber spatula to scrape down the sides of the bowl and beat the mixture on medium for 2 more minutes.'
+          },
+            {
+            url: 'img/bw5.jpg',
+            caption: 'Spoon the batter into the prepared muffin cups. Spoon the batter so the cups are 2/3 full, which will give the cupcakes enough room to expand.'
+          },
+            {
+            url: 'img/bw6.jpg',
+            caption: 'Bake the cupcakes for 18 - 24 minutes. After 15 minutes, start inserting a toothpick into the cupcakes. Once it comes out clean, the cupcakes are done and should be taken out of the oven.'
+          },
+            {
+            url: 'img/bw7.jpg',
+            caption: 'Make the marshmallow filling. You can do this while the cupcakes are baking. Microwave 3 tbsp. of unsalted butter in a microwave-safe covered bowl. Then, stir in 1 1/2 7-oz. jars of marshmallow cream to the butter.'
+          },
+          {
+            url: 'img/bw8.jpg',
+            caption: 'Make a 1/2-inch slit in the bottom center of each cupcake. Spoon the marshmallow filling into a pastry bag fitted with a round tip. Pipe the filling into the slits in the cupcake.'
+          },
+          
+          {
+            url: 'img/bw9.jpg',
+            caption: 'Combine 2/3 cup of heavy cream and 1 tbsp. of light corn syrup in a small saucepan.'
+          },
+            {
+            url: 'img/bw10.jpg',
+            caption: 'Dip the cupcake tops into the chocolate mixture. Smooth out the tops with a knife if necessary. Then, place the cupcakes into another paper liner and let the chocolate harden a bit.'
+          },
+            {
+            url: 'img/bw11.jpg',
+            caption: 'Spoon the vanilla frosting into a pastry bag. This bag should have a small round tip. Pipe a line of small loops around the center of each cake -- the loops should all intersect a bit.'
+          },
+            {
+            url: 'img/bw12.jpg',
+            caption: 'Serve. Enjoy these tasty treats on their own or with a glass of milk.'     
+          }
+        ],
+      }
+    },
+    methods: {
+      openStandalone: function () {
+        const self = this;
+        self.standalone.open();
+      },
+      openPopup: function () {
+        const self = this;
+        self.popup.open();
+      },
+      openPage: function () {
+        const self = this;
+        self.page.open();
+      },
+      openStandaloneDark: function () {
+        const self = this;
+        self.standaloneDark.open();
+      },
+      openPopupDark: function () {
+        const self = this;
+        self.popupDark.open();
+      },
+      openPageDark: function () {
+        const self = this;
+        self.pageDark.open();
+      },
+    },
+    on: {
+      pageInit: function () {
+        const self = this;
+        // Create PBs when page init
+        self.standalone = self.$app.photoBrowser.create({
+          photos: self.photos,
+        });
+        self.popup = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'popup',
+        });
+        self.page = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'page',
+          backLinkText: 'Back',
+        });
+        self.standaloneDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          theme: 'dark',
+        });
+        self.popupDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'popup',
+          theme: 'dark',
+        });
+        self.pageDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'page',
+          backLinkText: 'Back',
+          theme: 'dark',
+        });
+      },
+      pageBeforeRemove: function () {
+        const self = this;
+        // Destroy PBs on page remove
+        self.standalone.destroy();
+        self.popup.destroy();
+        self.page.destroy();
+        self.standaloneDark.destroy();
+        self.popupDark.destroy();
+        self.pageDark.destroy();
+      },
+    }
+  };
+</script>
