@@ -10,7 +10,11 @@ var routes = [
   
 
   
- 
+
+ {
+    path: '/index1/',
+    componentUrl: './pages/index1.html',
+  },
   {
     path: '/carrot/',
     componentUrl: './pages/carrot.html',
@@ -32,16 +36,84 @@ var routes = [
     componentUrl: './pages/steamed.html',
   },
   {
-    path: '/antartica/',
-    componentUrl: './pages/antartica.html',
+    path: '/plain/',
+    componentUrl: './pages/plain.html',
   },
 {
-    path: '/eu/',
-    componentUrl: './pages/eu.html',
+    path: '/chiffon/',
+    componentUrl: './pages/chiffon.html',
   },
   {
-    path: '/namerica/',
-    componentUrl: './pages/namerica.html',
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/plum/',
+    componentUrl: './pages/plum.html',
+  },
+  {
+    path: '/pound/',
+    componentUrl: './pages/pound.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
+  },
+  {
+    path: '/bun/',
+    componentUrl: './pages/bun.html',
   },
   {
     path: '/samerica/',
